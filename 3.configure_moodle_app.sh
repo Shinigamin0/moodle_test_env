@@ -2,7 +2,7 @@
 source ./conf
 
 docker exec -it $moodle_app_container_name /bin/bash -c \
-    /usr/bin/php /var/www/html/admin/cli/install.php \
+    "/usr/bin/php /var/www/html/admin/cli/install.php \
     --lang=en --wwwroot=http://localhost \
     --dataroot=$moodle_data_directory \
     --dbhost=$moodle_db_container_name \
@@ -16,7 +16,7 @@ docker exec -it $moodle_app_container_name /bin/bash -c \
     --adminuser="administrator" \
     --adminpass="Administrator-1" \
     --adminemail="admin@admin.com" \
-    --non-interactive --agree-license
+    --non-interactive --agree-license"
 
 docker exec -it $moodle_app_container_name /bin/bash -c '/home/ubuntu/set_permissions.sh'
 
